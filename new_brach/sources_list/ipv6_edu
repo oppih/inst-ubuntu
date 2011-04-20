@@ -1,0 +1,20 @@
+##以下源支持IPV6,推荐可以使用IPV6的教育网用户使用，速度在200kb/s左右，如需源代码，将deb替换成deb-src即可
+
+deb http://mirror.switch.ch/ftp/ubuntu/ lucid main multiverse restricted universe
+deb http://mirror.switch.ch/ftp/ubuntu/ lucid-backports main multiverse restricted universe
+deb http://mirror.switch.ch/ftp/ubuntu/ lucid-proposed main multiverse restricted universe
+deb http://mirror.switch.ch/ftp/ubuntu/ lucid-security main multiverse restricted universe
+deb http://mirror.switch.ch/ftp/ubuntu/ lucid-updates main multiverse restricted universe
+
+deb http://ftp.heanet.ie/mirrors/ubuntu/ lucid main multiverse restricted universe
+deb http://ftp.heanet.ie/mirrors/ubuntu/ lucid-backports main multiverse restricted universe
+deb http://ftp.heanet.ie/mirrors/ubuntu/ lucid-proposed main multiverse restricted universe
+deb http://ftp.heanet.ie/mirrors/ubuntu/ lucid-security main multiverse restricted universe
+deb http://ftp.heanet.ie/mirrors/ubuntu/ lucid-updates main multiverse restricted universe
+
+deb http://ftp.kddlabs.co.jp/020/Linux/packages/ubuntu/archive/ lucid main multiverse restricted universe
+deb http://ftp.kddlabs.co.jp/020/Linux/packages/ubuntu/archive/ lucid-backports main multiverse restricted universe
+deb http://ftp.kddlabs.co.jp/020/Linux/packages/ubuntu/archive/ lucid-proposed main multiverse restricted universe
+deb http://ftp.kddlabs.co.jp/020/Linux/packages/ubuntu/archive/ lucid-security main multiverse restricted universe
+deb http://ftp.kddlabs.co.jp/020/Linux/packages/ubuntu/archive/ lucid-updates main multiverse restricted universe
+

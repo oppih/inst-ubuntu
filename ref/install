@@ -1,0 +1,127 @@
+#!/usr/bin/env bash
+#===================================================================================================
+#Author:Zhang JinZhu
+#EMAIL: wosmvp@gmail.com
+#          做这个脚本因为对目前的一些方法不太满意，所以自己做个用，很感谢大家能提出些有用的建议……
+#软件功能: 每个脚本可以同时下载多个软件，并分多个线程下载（3个）,也可以同时进行几个脚本运行,在安装时单独进行安装，其它脚本等待……
+#TODO:记住密码，软件仓库定义
+#TODO:处理kill命令
+#TODO:自动安装axel
+#TODO:定时下载，更新完关机
+#TODO:不加任何参数运行，然后可自由选择，
+#TODO:正在考虑怎样让新立德之类的软件调用这个脚本……(实验)
+#TODO:离线update
+#TODO:跨架构支持，支持32 64位，即可以在64位上下载32位软件，32位下载64位软件，方便用户之间传播软件软软件（实验）
+#TODO:用户选择导入系统软件列表，判断依赖关系的东西，可以在其它系统上下载软件……(实验)
+#TODO:下载vim 插件 gdm office插件等等（实验）
+#TODO:获得有些网站的最新发布的视频音频等文件(实验)#使用方法：可以将其保存为一个脚本，赋于执行权限，chmod ＋x ，然后使用 
+#  ./install.sh -t 加软件名 将所有的升级和软件下载地址保存为thunder.lst在主目录中，以后可以使用thunder导入该下载列表，如果不跟软件名，将会保存升级列表……
+#  ./install -s 加字符 调用apt-cache search搜索所有符合条件的软件，列出，可以直接选择，然后安装
+#  ./install.sh -i 软件名 安装该软件
+#  ./install.sh -u 进行update
+#  ./install.sh -g 进行upgrade
+#  ./install.sh -ug 进行update后进行upgrade
+#  ./install.sh -iug 软件名  安装该软件，然后update,再upgrade 
+#  等等
+# (可以考虑将其定义为一个函数，放入login profile 等文件中，以获得更快的运行速度,注意要用bash运行,不可以是sh)
+#===================================================================================================
+SOFTPOOL="/var/cache/apt/archives/" 
+function password
+{
+		echo -n PASSWORD:
+		stty -echo
+		read PASSWORD
+		exprot $PASSWORD
+		stty echo
+}
+
+trap 'for i in ${uids[*]}
+	do
+		kill $i
+	done
+	exit 1
+	exit 1' 2 #FIXME 不能停止尚未开始的下载进程，HELP！！！
+
+function waitaxel
+{
+	for i in ${uids[*]}
+	do
+		wait $i
+	done
+}
+
+function waitapt
+{
+	a=($(ps -a|grep "apt-get"))
+	if (($a))
+		then
+		sleep 30
+		waitapt
+	fi
+}
+
+function download
+{
+	pushd $SOFTPOOL >> /dev/null
+	declare -i i=0
+for uri in ${uris[*]}
+	do
+		((i=i+1))
+		echo $(date) 开始下载 $(basename $uri),请稍候
+		echo $PASSWORD|sudo -S axel -a -n 3 ${uri} &
+		uids[$i]=$!
+	done
+	pushd >> /dev/null
+	sleep 60
+	waitaxel
+	echo 下载完毕$(date)
+}
+
+while getopts ":iguts" arg 2>/dev/null
+do
+case $arg in
+	i) password 
+		shift
+		SOFTWARE=$@
+		declare -a uris=($( echo $PASSWORD|sudo -S apt-get install --print-uris $SOFTWARE -y --force-yes|cut -d\' -s -f 2-2 ))
+		if ((${#uris[*]}>0))
+			then
+			download
+		fi
+		waitapt
+		echo $PASSWORD|sudo -S apt-get install $SOFTWARE -y --force-yes
+		echo "$SOFTWARE成功安装"
+		;;
+	g) password
+			declare -a uris=($( echo $PASSWORD|sudo -S apt-get upgrade --print-uris $SOFTWARE -y --force-yes|cut -d\' -s -f 2-2 ))
+			if ((${#uris[*]}>0))
+				then
+				download
+			fi
+		waitapt
+		echo $PASSWORD|sudo -S apt-get upgrade -y --force-yes
+		echo "恭喜，你的系统己是最新"
+		;;
+	u) password; echo $PASSWORD|sudo -S apt-get update;;#TODO 提升update速度
+	t) echo "把下载列表导出到迅雷导入列表，在主目录下文件名为thunder.lst"
+		 shift
+     SOFTWARE=$@
+		 echo $PASSWORD|sudo -S apt-get upgrade --print-uris $SOFTWARE -y --force-yes|cut -d\' -s -f 2-2|tee >>/tmp/thunder
+		 echo $PASSWORD|sudo -S apt-get install --print-uris $SOFTWARE -y --force-yes|cut -d\' -s -f 2-2|tee >> /tmp/thunder
+		 sort /tmp/thunder|uniq > ~/thunder.lst
+		 sed -if 's/$/\t/' ~/thunder.lst
+		 echo "执行完毕"
+		 ;;
+	s) PS3="Select a program to install:"
+		 shift
+     SOFTWARE=$@
+		 declare -a softwares=($(apt-cache search $SOFTWARE|cut -d\  -f1))
+		 select program in ${softwares[*]}
+		 do
+			 $0 -i ${program}
+		 done
+		 ;;
+
+	\?) echo "oops,目前只有i (install) u (update) g (upgrade) s(搜索安装) t(生成迅雷用导入列表)选项，如果有什么问题欢迎联系wosmvp@gmail.com";;
+esac
+done

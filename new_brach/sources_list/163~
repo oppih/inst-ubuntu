@@ -1,0 +1,13 @@
+##网易163更新服务器：
+
+deb http://mirrors.163.com/ubuntu/ jaunty main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ jaunty-security main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ jaunty-updates main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ jaunty-proposed main restricted universe multiverse
+deb http://mirrors.163.com/ubuntu/ jaunty-backports main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty-security main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty-updates main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty-proposed main restricted universe multiverse
+deb-src http://mirrors.163.com/ubuntu/ jaunty-backports main restricted universe multiverse
+

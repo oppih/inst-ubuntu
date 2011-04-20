@@ -1,0 +1,10 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Name=Ubuntu中文论坛 • 查看主题 - ［打造社区强贴 - 图文更新］ ubuntu9.10 系统安装、配置、使用指南
+Exec=/opt/google/chrome/google-chrome --app="http://forum.ubuntu.org.cn/viewtopic.php?f=77&t=236877"
+Terminal=false
+Icon=chrome-http___forum.ubuntu.org.cn_viewtopic.php_f=77&t=236877
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;

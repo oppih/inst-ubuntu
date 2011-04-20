@@ -1,0 +1,61 @@
+硬件驱动
+打开 〖System/系统〗---〖Administration/系统管理〗---〖Hardware Drivers/硬件驱动〗。Ubuntu 自动开始查找可用驱动程序，然后选中你需要启用的硬件驱动程序，单击〖Enable/启用〗，Ubuntu将自动为你下载安装驱动，当它一直是0%时请不要慌张，稍等即可。完装完成后，请重新启动。 
+___________这个应该比较难，以后再说
+
+主文件夹中的中文目录换英文怎么处理？
+
+一些rc配置文件的导入（只能根据我的配置了）所以需要新建一个目录来存储这些文件
+另，想要把其他一些模块文件存放在一个文件夹内的，看样子行不通。python内部机制限制这个相对路径导入
+
+Wine的安装
+
+新特性，自动在浏览器中打开Ubuntu中文wiki的Qref？
+“适合新手的.pth文件，参考《Learning Python》的附录A”：
+sys.path.append('c:\\lp3e\\examples')这是一种方法，另外的.pth文件的存放位置是需要确认的事情。
+
+三引号强势注释代码的方法————已解决，在函数中，“”“应该保持为函数内容的缩进相同
+
+
+多媒体部分，如下：
+
+加入国际外源   ##教育网内未连接成功
+解决这个问题的方法能不能是由我来搜集必需的一些gpg来导入呢？
+
+sudo wget http://www.medibuntu.org/sources.list.d/jaunty.list -O /etc/apt/sources.list.d/medibuntu.list
+
+wget -q http://packages.medibuntu.org/medibuntu-key.gpg -O- | sudo apt-key add -
+
+sudo apt-get update && sudo apt-get install medibuntu-keyring && sudo apt-get update
+
+
+安装Flash Player   ＃＃成功
+
+sudo wget http://ubuntu:ubuntuftp@ftp.ubuntu.org.cn/home/dbzhang800/wiki/install_flash_player_10_linux.deb
+
+sudo apt-get update && sudo apt-get upgrade
+
+sudo dpkg -i install_flash_player_10_linux.deb
+
+
+Xine多媒体引擎  ＃＃国际外源没有连接，不能使用
+
+sudo apt-get install libxine1-ffmpeg libxine1-all-plugins libxine1-plugins w32codecs libstdc++5
+
+
+
+修改/boot/grub/menu.list timeout=3
+这个学要处理文件读写了
+
+
+安装扩展软件：
+sudo apt-get install vim-full
+
+sudo apt-get install d4x
+
+sudo apt-get install mplayer mplayer-fonts mozilla-mplayer
+
+sudo apt-get install konsole geany？
+
+
+最后提示访问：
+http://wiki.ubuntu.org.cn/Qref/Jaunty  ##快速设置指南

@@ -1,0 +1,46 @@
+脚本设计目标：
+参考：wiki Qref
+1.免去新安装系统后必须要重复的步骤
+2.添加必要的支持，如多媒体，文档阅读
+3.安装推荐软件（如何兼顾用户选择与可定制性而非强制性之间的平衡）
+4.以模块形式组织代码
+
+
+
+1.以超级用户权限来运行脚本(现改为以普通权限运行，在命令中自动调用sudo)
+2.运行后提示说明文件功能以及一些版本信息
+3.0脚本完成源备份功能，完成后提示恢复的命令行方法
+3.修改源[前期版本只提供教育网内IPv6源，以后提供文件选择（需要掌握文件读写）]
+4.apt-get update && apt-get upgrade
+5.其他热门设置[前期版本直接默认安装我用的软件，后期提供选择]
+6.提示下载安装Ubuntu-Tweak软件,或者以后通过修改添加第三方软件源的方法来处理（关于第三方源的开启，有必要选择设置Ubuntu中文的PPA镜像）同时注意功能上不要与TX的有重复（不重复发明轮子的原则）
+
+------------------------------------------------------------------
+
+事先编写更新源地址文件
+工具中，第一条提示会对系统自带源地址文件进行备份
+第二条提示，导入所在目录下的地址文件，使用cp命令
+sudo aptitude update
+sudo aptitude full-upgrade
+接下来应该处理语言更新问题
+测试时在自建目录中执行试验
+未来的后期版本应该加入版本检查
+如果使用简单的命令可以测试连接源的速度的话，那么就可以帮助判断应该使用哪个源来提供更新了
+针对aptitude的命令，实现无人值守的方式大概是使用-y或者是--assume-yes这样的参数,示例如下：
+# Updating Ubuntu
+sudo aptitude update
+sudo aptitude --assume-yes dist-upgrade
+# Installing vim
+sudo aptitude --assume-yes install vim vim-gnome
+# Installing dependencies
+sudo aptitude --assume-yes install build-essential
+或者这样的形式：
+apt-get --assume-yes -q aptitude
+aptitude -y update
+aptitude -y install build-essential
+apt-get --assume-yes -q install automake
+aptitude -y install libssl-dev libnewt-dev
+
+从师父那里看来的关于前期配置的：
+sudo apt-get install ubuntu-minimal #会安装一些Python、认证之类的软件包
+sudo apt-get install language-pack-en #安装英文环境，这步会产生locale

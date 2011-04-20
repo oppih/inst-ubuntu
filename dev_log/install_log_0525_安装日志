@@ -1,0 +1,20 @@
+--------------------
+--------------------
+以下安装中文语言支持
+--------------------
+--------------------
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+Package language-support-translations-zh is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+E: Package language-support-translations-zh has no installation candidate
+
+解决需要手动确定的问题
+
+一次性下载软件包然后在统一启动安装
+
+iBus已经是默认的输入法了，而且貌似不需要带入设置为默认的了。应该在我的脚本中带入安装sunpinyin了。
+
+附加软件还得确定一下是否合适。毕竟在教育网中。代理方式不一定可行，尤其是ppa的软件。另外，ppa的主要交给tweak来做。

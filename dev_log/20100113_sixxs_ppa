@@ -1,0 +1,8 @@
+加入以sixxs.org.方式添加ppa源的功能
+
+在UTCOM上看到了ppa源程序的key，之前也找到了系统中添加key的地方（update manager），判断应该可以通过命令行的方式添加到。那么，自己准备好一定数量的GPG的话，也就可以通过选择导入的方式，再配合自己发现的sixxs的方式来在教育网中使用ppa源里面的软件了。
+新建sixxs_ppa.list文件，用以专门存放处理过的ppa地址。
+注明，该功能仅在ipv6可用网络中开启。
+
+按照师父的做法，source.list.d目录需要进行检测是否存在才能将我的sixxs_ppa.list添加进去。
+

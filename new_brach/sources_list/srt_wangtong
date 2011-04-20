@@ -1,0 +1,10 @@
+deb http://u.srt.cn/ubuntu/ lucid main restricted universe multiverse
+deb http://u.srt.cn/ubuntu/ lucid-security main restricted universe multiverse
+deb http://u.srt.cn/ubuntu/ lucid-updates main restricted universe multiverse
+deb http://u.srt.cn/ubuntu/ lucid-proposed main restricted universe multiverse
+deb http://u.srt.cn/ubuntu/ lucid-backports main restricted universe multiverse
+deb-src http://u.srt.cn/ubuntu/ lucid main restricted universe multiverse
+deb-src http://u.srt.cn/ubuntu/ lucid-security main restricted universe multiverse
+deb-src http://u.srt.cn/ubuntu/ lucid-updates main restricted universe multiverse
+deb-src http://u.srt.cn/ubuntu/ lucid-proposed main restricted universe multiverse
+deb-src http://u.srt.cn/ubuntu/ lucid-backports main restricted universe multiverse
