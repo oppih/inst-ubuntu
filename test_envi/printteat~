@@ -1,6 +1,0 @@
-flag = "-"
-width = 25
-print flag * width + "\n" + flag * width
-print "以下更新源地址列表为杭州网通适用"
-print "默认将对系统自带源列表进行备份，如果修改源失败的话，使用以下命令恢复至默认的源地址文件：\nsudo cp /etc/apt/sources.list_backup /etc/apt/sources.list"
-print flag * width + "\n" + flag * width
