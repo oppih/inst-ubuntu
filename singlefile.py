@@ -10,6 +10,7 @@ import os
 import time
 
 #Configuration
+#TODO check if the network supports IPv6
 os.system("sudo cp ./config/ipv6_hosts /etc/hosts")
 
 flag = "-"
@@ -17,13 +18,13 @@ width = 50
 
 print flag * width + "\n" + flag * width + "\n以下更新源地址列表为教育网IPv6适用\n默认将对系统自带源列表进行备份，如果修改源失败的话，使用以下命令恢复至默认的源地址文件：\nsudo cp /etc/apt/sources.list_backup /etc/apt/sources.list\n" + flag * width + "\n" + flag * width
 
-time.sleep(2)
+time.sleep(1)
 
 #更新软件源
 os.system("sudo cp /etc/apt/sources.list /etc/apt/sources.list_backup")
 os.system("sudo cp ./sources_list/ipv6_edu /etc/apt/sources.list")#./test_envi/sources.list
 
-os.system("sudo apt-get update && sudo apt-get dist-upgrade -y --force-yes")
+os.system("sudo apt-get update")
 
 """
 #安装语言支持
