@@ -1,13 +1,13 @@
 ##中国台湾 台湾大学更新服务器（推荐网通用户使用，电信PING平均响应速度41MS。强烈推荐此源，比较完整，较少出现同步问题）：
 
-deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid main restricted universe multiverse
-deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid main restricted universe multiverse
-deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid-updates main restricted universe multiverse
-deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid-updates main restricted universe multiverse
-deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid-backports main restricted universe multiverse
-deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid-backports main restricted universe multiverse
-deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid-security main restricted universe multiverse
-deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid-security main restricted universe multiverse
-deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid-proposed main multiverse restricted universe
-deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ lucid-proposed main restricted universe multiverse
+deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty main restricted universe multiverse
+deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty main restricted universe multiverse
+deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty-updates main restricted universe multiverse
+deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty-updates main restricted universe multiverse
+deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty-backports main restricted universe multiverse
+deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty-backports main restricted universe multiverse
+deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty-security main restricted universe multiverse
+deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty-security main restricted universe multiverse
+deb http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty-proposed main multiverse restricted universe
+deb-src http://ubuntu.csie.ntu.edu.tw/ubuntu/ natty-proposed main restricted universe multiverse
 
