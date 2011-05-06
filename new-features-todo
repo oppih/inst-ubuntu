@@ -1,3 +1,7 @@
+New idea: After the system installed successfully, I should use the new mirror, and then I `may` update, But it seems that I don't need to upgrade---- it's too slow here outside IPv6.
+
+So to keep the same script, I should update and install some essential packages and then leave the system alone to system-wide upgrade.
+=================================
 sudo -S apt-get install --print-uris $SOFTWARE -y --force-yes
 
 sudo apt-get install language-pack-en #安装英文环境，这步会产生locale
